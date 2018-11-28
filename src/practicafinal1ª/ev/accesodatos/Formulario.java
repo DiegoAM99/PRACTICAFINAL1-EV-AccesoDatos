@@ -14,12 +14,16 @@ import javax.swing.JFileChooser;
  */
 public class Formulario extends javax.swing.JFrame {
     Sax getSax;
+    Dom getDom;
+    JaxB getJaxB;
     /**
      * Creates new form Formulario
      */
     public Formulario() {
         initComponents();
         getSax = new Sax();
+        getDom = new Dom();
+        getJaxB = new JaxB();
     }
     private File dialogoSeleccionTipoRecurso(){
     File fichero=null;
@@ -215,7 +219,13 @@ public class Formulario extends javax.swing.JFrame {
         File ficheroXML;
         ficheroXML = dialogoSeleccionTipoRecurso();
         if(getSax.abrir_XML_SAX(ficheroXML) == 0){
-                jLabel1.setText("Carga de SAX completada.");
+                jLabel1.setText("Carga del documento completada.");
+        }
+        if(getDom.abrir_XML_DOM(ficheroXML) == 0){
+                jLabel1.setText("Carga del documento completada.");
+        }
+        if(getJaxB.abrir_XML_JAXB(ficheroXML) == 0){
+                jLabel1.setText("Carga del documento completada.");
         }
     }//GEN-LAST:event_jMenuItem1MousePressed
 
