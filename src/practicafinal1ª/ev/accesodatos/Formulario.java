@@ -16,6 +16,7 @@ public class Formulario extends javax.swing.JFrame {
     Sax getSax;
     Dom getDom;
     JaxB getJaxB;
+    File selectedFile;
     /**
      * Creates new form Formulario
      */
@@ -66,7 +67,6 @@ public class Formulario extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -92,6 +92,11 @@ public class Formulario extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea2);
 
         jButtonMostrar.setText("Mostrar");
+        jButtonMostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonMostrarMousePressed(evt);
+            }
+        });
 
         jTextFieldNombreJuego.setText("NombreJuego");
 
@@ -100,12 +105,22 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldConsola.setText("Consola");
 
         jButtonAñadir.setText("Añadir");
+        jButtonAñadir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonAñadirMousePressed(evt);
+            }
+        });
 
         jButtonEjecutarConsulta.setText("Ejecutar Consulta");
 
         jLabel1.setText("Seleccione un archivo");
 
         jButtonModificar.setText("Modificar");
+        jButtonModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonModificarMousePressed(evt);
+            }
+        });
 
         jLabel2.setText("Antiguo NombreJuego");
 
@@ -127,9 +142,6 @@ public class Formulario extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -229,6 +241,43 @@ public class Formulario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1MousePressed
 
+    private void jButtonModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarMousePressed
+//        if (jTextFieldAntiguoNombreJuego.getText().equals("") || jTextFieldNuevoNombreJuego.getText().equals("")){
+//            jLabel1.setText("Campos incompletos.");
+//         } 
+//         else{
+//            //Paso como parametro lo que escriba en los respectivos jTextField respecto al titulo viejo y al nuevo
+//            getDom.modificarDOM(jTextFieldAntiguoNombreJuego.getText(), jTextFieldNuevoNombreJuego.getText());
+//            //Le paso al jTextArea la modificacion
+//            jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
+//            //Utilizo el contador para identificar los cambios, y en el caso de que existan 
+//            //cambios los guardo.
+//          if (getDom.conteo == 1){
+//                getDom.guardarDOMcomoFILE("modificacion.xml");
+//          }
+//          else if (getDom.conteo > 1){
+//                getDom.guardarDOMcomoFILE("modificacion.xml");
+//          }
+//        }
+    }//GEN-LAST:event_jButtonModificarMousePressed
+
+    private void jButtonAñadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAñadirMousePressed
+      //No dejara realizar la accion si algun campo esta vacio.
+        if (jTextFieldNombreJuego.getText().equals("") || jTextFieldGenero.getText().equals("") || jTextFieldConsola.getText().equals("")){
+            jLabel1.setText("Campos incompletos.");
+        }
+        //Con todos los campos rellenos, accedera a añadir un nuevo videojuego.
+        else{
+            getDom.añadirDOM(jTextFieldNombreJuego.getText(), jTextFieldGenero.getText(), jTextFieldConsola.getText());
+            jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
+            jLabel1.setText("Nuevo videojuego añadido correctamente.");
+        }
+    }//GEN-LAST:event_jButtonAñadirMousePressed
+
+    private void jButtonMostrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMostrarMousePressed
+        jTextArea2.setText(getSax.recorrerSAX());
+    }//GEN-LAST:event_jButtonMostrarMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -275,7 +324,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;

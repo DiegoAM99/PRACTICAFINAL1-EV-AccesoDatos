@@ -25,6 +25,8 @@ public class Dom {
     int conteo;
     String salida;
     NodeList nodelist;
+   
+    
     public int abrir_XML_DOM (File fichero){                                        //doc representa al arbol dom
         doc = null;
         try{
@@ -52,10 +54,10 @@ public class Dom {
         for(int i=0; i<nodelist.getLength(); i++){                              //Procesa los nodos hijo
             node = nodelist.item(i);
             if (node.getNodeType()==Node.ELEMENT_NODE){
-                datos_nodo = procesarLibro(node);                               //Es un nodo libro
-                    salida = salida + "\n" + "Publicado en:"+ datos_nodo[0];
-                    salida = salida + "\n" + "El autor es:" +datos_nodo[1];
-                    salida = salida + "\n" + "El titulo es:"+datos_nodo[2];
+                datos_nodo = procesarJuego(node);                               //Es un nodo libro
+                    salida = salida + "\n" + "El nombre del juego es: "+ datos_nodo[0];
+                    salida = salida + "\n" + "El genero del juego es: " +datos_nodo[1];
+                    salida = salida + "\n" + "Plataforma/s: "+datos_nodo[2];
                     salida = salida + "\n-----------"; 
             }
             
@@ -65,12 +67,12 @@ public class Dom {
     
     
     
-    protected String[] procesarLibro(Node n){
+    protected String[] procesarJuego(Node n){
         String datos[]= new String[3];
         Node ntemp = null;
         int contador = 1;
     
-        datos[0]=n.getAttributes().item(0).getNodeValue();                      //obtiene el valor del primer atributo del nodo(uno en este ejempo)
+        datos[0]=n.getChildNodes().item(0).getNodeValue();                      //obtiene el valor del primer atributo del nodo(uno en este ejempo)
         NodeList nodos = n.getChildNodes();                                     //obtiene los hijos del libro (titulo y autor) 
         
         for (int i=0; i < nodos.getLength(); i++){
@@ -88,25 +90,26 @@ public class Dom {
     
     
     
-    public int añadirDOM(Document doc, String titulo, String autor, String anno){
+    public int añadirDOM(String nombreJuego, String genero, String consola){
         try{
-            Node ntitulo = doc.createElement("Titulo");                         //Se crea un nodo tipo element con nombre 'titulo'(<Titulo>)
-            Node ntitulo_text=doc.createTextNode(titulo);                       //Se crea un nodo tipo texto con el titulo del libro
+            Node njuego = doc.createElement("NombreJuego");                         //Se crea un nodo tipo element con nombre 'titulo'(<Titulo>)
+            Node njuego_text=doc.createTextNode(nombreJuego);                       //Se crea un nodo tipo texto con el titulo del libro
             
-            ntitulo.appendChild(ntitulo_text);                                  //Se añade el nodo de texto con el titulo como hijo del elemento titulo
+            njuego.appendChild(njuego_text);                                  //Se añade el nodo de texto con el titulo como hijo del elemento titulo
             
-            Node nautor = doc.createElement("Autor");                           //Se ace lo mismo que con titulo a autor(<Autor>)
-            Node nautor_text = doc.createTextNode(autor);
+            Node ngenero = doc.createElement("Genero");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node ngenero_text = doc.createTextNode(genero);
             
-            nautor.appendChild(nautor_text);
+            ngenero.appendChild(ngenero_text);
             
-            Node nlibro=doc.createElement("Libro");                             //Se crea un nodo de tipo elemento(<libro>) 
-            ((Element)nlibro).setAttribute("publicado_en", anno);               //Al nuevo nodo libro se le añade un atributo publicado_en
-            nlibro.appendChild(ntitulo);                                        //Se añade a libro el nodo autor y titulo creados antes
-            nlibro.appendChild(nautor);
+            Node nconsola = doc.createElement("Consola");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node nconsola_text = doc.createTextNode(consola);
+            
+            nconsola.appendChild(nconsola_text);
+            
             
             Node raiz = doc.getChildNodes().item(0);                            //Se obtiene el primer nodo del documento y a el se le añade como hijo el nodo libro que ya tiene colgando todos sus hijos y atributos creados antes
-            raiz.appendChild(nlibro);
+            raiz.appendChild(njuego);
             
             return 0;    
         }
@@ -127,7 +130,7 @@ public class Dom {
         File archivo_xml = new File(salida);                              //Crea un fichero llamado salida.xml
         OutputFormat format =new OutputFormat(doc);                             //Especifica el formato de salida
         format.setIndenting(true);                                              //Especifica que la salida este  indentada
-        XMLSerializer serializer =new XMLSerializer(new FileOutputStream        //Escribe el contenido e el file    
+        XMLSerializer serializer =new XMLSerializer(new FileOutputStream        //Escribe el contenido en el file    
         (archivo_xml),format);
         
         serializer.serialize(doc);
