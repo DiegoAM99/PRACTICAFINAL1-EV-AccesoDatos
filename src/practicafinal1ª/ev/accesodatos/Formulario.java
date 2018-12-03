@@ -67,7 +67,7 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldDistribuidor = new javax.swing.JTextField();
         jTextFieldModoJuego = new javax.swing.JTextField();
         jTextFieldFecha = new javax.swing.JTextField();
-        jTextFieldAnno = new javax.swing.JTextField();
+        jTextFieldAño = new javax.swing.JTextField();
         jTextFieldDesarrollo = new javax.swing.JTextField();
         jTextFieldClasificacion = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -138,9 +138,9 @@ public class Formulario extends javax.swing.JFrame {
 
         jTextFieldFecha.setText("FechaLanzamiento");
 
-        jTextFieldAnno.setText("Año");
+        jTextFieldAño.setText("Año");
 
-        jTextFieldDesarrollo.setText("Desarrollado por");
+        jTextFieldDesarrollo.setText("Desarrollado Por");
 
         jTextFieldClasificacion.setText("Clasificacion");
 
@@ -197,15 +197,15 @@ public class Formulario extends javax.swing.JFrame {
                             .addComponent(jButtonEjecutarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jButtonAñadir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldClasificacion, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldAnno, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldFecha, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldConsola, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldGenero, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldNombreJuego, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                                 .addComponent(jTextFieldDistribuidor, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldModoJuego, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldDesarrollo, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addComponent(jTextFieldAño, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldDesarrollo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldClasificacion, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -236,7 +236,7 @@ public class Formulario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAño, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldDesarrollo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -280,34 +280,35 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1MousePressed
 
     private void jButtonModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarMousePressed
-//        if (jTextFieldAntiguoNombreJuego.getText().equals("") || jTextFieldNuevoNombreJuego.getText().equals("")){
-//            jLabel1.setText("Campos incompletos.");
-//         } 
-//         else{
-//            //Paso como parametro lo que escriba en los respectivos jTextField respecto al titulo viejo y al nuevo
-//            getDom.modificarDOM(jTextFieldAntiguoNombreJuego.getText(), jTextFieldNuevoNombreJuego.getText());
-//            //Le paso al jTextArea la modificacion
-//            jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
-//            //Utilizo el contador para identificar los cambios, y en el caso de que existan 
-//            //cambios los guardo.
-//          if (getDom.conteo == 1){
-//                getDom.guardarDOMcomoFILE("modificacion.xml");
-//          }
-//          else if (getDom.conteo > 1){
-//                getDom.guardarDOMcomoFILE("modificacion.xml");
-//          }
-//        }
+        if (jTextFieldAntiguoNombreJuego.getText().equals("") || jTextFieldNuevoNombreJuego.getText().equals("")){
+            jLabel1.setText("Campos incompletos.");
+         } 
+         else{
+            //Paso como parametro lo que escriba en los respectivos jTextField respecto al titulo viejo y al nuevo
+            getDom.modificarDOM(jTextFieldAntiguoNombreJuego.getText(), jTextFieldNuevoNombreJuego.getText());
+            //Le paso al jTextArea la modificacion
+            jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
+            //Utilizo el contador para identificar los cambios, y en el caso de que existan 
+            //cambios los guardo.
+          if (getDom.conteo == 1){
+                getDom.guardarDOMcomoFILE("modificacion.xml");
+          }
+          else if (getDom.conteo > 1){
+                getDom.guardarDOMcomoFILE("modificacion.xml");
+          }
+        }
     }//GEN-LAST:event_jButtonModificarMousePressed
 
     private void jButtonAñadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAñadirMousePressed
       //No dejara realizar la accion si algun campo esta vacio.
-        if (jTextFieldNombreJuego.getText().equals("") || jTextFieldGenero.getText().equals("") || jTextFieldConsola.getText().equals("") || jTextFieldDistribuidor.getText().equals("") || jTextFieldModoJuego.getText().equals("") || jTextFieldFecha.getText().equals("")){
+        if (jTextFieldNombreJuego.getText().equals("") || jTextFieldGenero.getText().equals("") || jTextFieldConsola.getText().equals("") || jTextFieldDistribuidor.getText().equals("") || jTextFieldModoJuego.getText().equals("") || jTextFieldFecha.getText().equals("") || jTextFieldAño.getText().equals("") || 
+        jTextFieldDesarrollo.getText().equals("") || jTextFieldClasificacion.getText().equals("")){
             jLabel1.setText("Campos incompletos.");
         }
         //Con todos los campos rellenos, accedera a añadir un nuevo videojuego.
         else{
-            getDom.añadirDOM(jTextFieldNombreJuego.getText(), jTextFieldGenero.getText(), jTextFieldConsola.getText(), jTextFieldDistribuidor.getText(), jTextFieldModoJuego.getText(), jTextFieldFecha.getText(), jTextFieldAnno.getText(),
-                    jTextFieldDesarrollo.getText(), jTextFieldClasificacion.getText());
+            getDom.añadirDOM(jTextFieldNombreJuego.getText(), jTextFieldGenero.getText(), jTextFieldConsola.getText(), jTextFieldDistribuidor.getText(), jTextFieldModoJuego.getText(), jTextFieldFecha.getText(),
+                    jTextFieldAño.getText(), jTextFieldDesarrollo.getText(), jTextFieldClasificacion.getText());
             jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
             jLabel1.setText("Nuevo videojuego añadido correctamente.");
         }
@@ -367,8 +368,8 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextFieldAnno;
     private javax.swing.JTextField jTextFieldAntiguoNombreJuego;
+    private javax.swing.JTextField jTextFieldAño;
     private javax.swing.JTextField jTextFieldClasificacion;
     private javax.swing.JTextField jTextFieldConsola;
     private javax.swing.JTextField jTextFieldDesarrollo;

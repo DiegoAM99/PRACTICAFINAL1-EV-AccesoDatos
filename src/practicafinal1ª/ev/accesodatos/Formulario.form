@@ -113,15 +113,15 @@
                           <Component id="jButtonEjecutarConsulta" min="-2" pref="241" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jButtonAñadir" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextFieldClasificacion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextFieldAnno" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldFecha" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldConsola" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldGenero" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldNombreJuego" alignment="0" pref="226" max="32767" attributes="0"/>
                               <Component id="jTextFieldDistribuidor" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldModoJuego" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAño" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldDesarrollo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldClasificacion" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -162,7 +162,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldFecha" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldAnno" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAño" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldDesarrollo" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -284,14 +284,14 @@
         <Property name="text" type="java.lang.String" value="FechaLanzamiento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAnno">
+    <Component class="javax.swing.JTextField" name="jTextFieldA&#xf1;o">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldDesarrollo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Desarrollado por"/>
+        <Property name="text" type="java.lang.String" value="Desarrollado Por"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldClasificacion">
