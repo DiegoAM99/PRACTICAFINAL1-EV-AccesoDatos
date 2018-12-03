@@ -9,6 +9,9 @@
 							<xsd:element name="NombreJuego" type="xsd:string" />
 							<xsd:element name="Genero" type="xsd:string" />
 							<xsd:element name="Consola" type="xsd:string" />
+                                                        <xsd:element name="Distribuidor" type="xsd:string" />
+                                                        <xsd:element name="ModoJuego" type="xsd:string" />
+                                                        <xsd:element name="FechaLanzamiento" type="xsd:string" />
 						</xsd:sequence>
 						<xsd:attribute name="publicado_en" type="xsd:string"/>
 						<xsd:attribute name="desarrollado_por" type="xsd:string"/>
