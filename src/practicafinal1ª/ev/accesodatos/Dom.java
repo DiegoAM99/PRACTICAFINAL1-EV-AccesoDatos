@@ -90,39 +90,53 @@ public class Dom {
     
     
     
-    public int añadirDOM(String nombreJuego, String genero, String consola, String distribuidor, String modojuego, String fechalanzamiento){
+    public int añadirDOM(String nombreJuego, String genero, String consola, String distribuidor, String modojuego, String fechalanzamiento, String anno,
+            String desarrollo, String clasificacion){
         try{
-            Node njuego = doc.createElement("NombreJuego");                         //Se crea un nodo tipo element con nombre 'titulo'(<Titulo>)
-            Node njuego_text=doc.createTextNode(nombreJuego);                       //Se crea un nodo tipo texto con el titulo del libro
+            Node njuego = doc.createElement("NombreJuego");                         //Se crea un nodo tipo element con nombre 'juego'(<NombreJuego>)
+            Node njuego_text=doc.createTextNode(nombreJuego);                       //Se crea un nodo tipo texto con el nombre del juego
             
-            njuego.appendChild(njuego_text);                                  //Se añade el nodo de texto con el titulo como hijo del elemento titulo
+            njuego.appendChild(njuego_text);                                  //Se añade el nodo de texto con el juego como hijo del elemento juego
             
-            Node ngenero = doc.createElement("Genero");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node ngenero = doc.createElement("Genero");                           //Se hace lo mismo que con el genero del juego(<Genero>)
             Node ngenero_text = doc.createTextNode(genero);
             
             ngenero.appendChild(ngenero_text);
             
-            Node nconsola = doc.createElement("Consola");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node nconsola = doc.createElement("Consola");                           //Se hace lo mismo que con NombreJuego a consola(<Consola>)
             Node nconsola_text = doc.createTextNode(consola);
             
             nconsola.appendChild(nconsola_text);
             
-            Node ndistribuidor = doc.createElement("Distribuidor");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node ndistribuidor = doc.createElement("Distribuidor");                           //Se hace lo mismo que con el distribuidor
             Node ndistribuidor_text = doc.createTextNode(distribuidor);
             
             ndistribuidor.appendChild(ndistribuidor_text);
             
-            Node nmodojuego = doc.createElement("ModoJuego");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node nmodojuego = doc.createElement("ModoJuego");                           //Se hace lo mismo que con el modo de juego
             Node nmodojuego_text = doc.createTextNode(modojuego);
             
             nmodojuego.appendChild(nmodojuego_text);
             
-            Node nfechalanzamiento = doc.createElement("FechaLanzamiento");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node nfechalanzamiento = doc.createElement("FechaLanzamiento");                           //Se hace lo mismo que con la fecha de lanzamiento
             Node nfechalanzamiento_text = doc.createTextNode(fechalanzamiento);
             
             nfechalanzamiento.appendChild(nfechalanzamiento_text);
             
-            Node raiz = doc.getChildNodes().item(0);                            //Se obtiene el primer nodo del documento y a el se le añade como hijo el nodo libro que ya tiene colgando todos sus hijos y atributos creados antes
+            Node nvideojuego=doc.createElement("Videojuego");                             //Se crea un nodo de tipo elemento(<libro>) 
+            ((Element)nvideojuego).setAttribute("publicado_en", anno);
+            ((Element)nvideojuego).setAttribute("desarrollado_por", desarrollo);
+            ((Element)nvideojuego).setAttribute("Clasificacion", clasificacion);
+            
+            //Al nuevo nodo videojuego se le añade los atributos
+            nvideojuego.appendChild(njuego);                                        //Se añade a videojuego el nodo juego, genero, consola, distribuidor, modojuego, fechalanzamiento  creados antes
+            nvideojuego.appendChild(ngenero);
+            nvideojuego.appendChild(nconsola);
+            nvideojuego.appendChild(ndistribuidor);
+            nvideojuego.appendChild(nmodojuego);
+            nvideojuego.appendChild(nfechalanzamiento);
+            
+            Node raiz = doc.getChildNodes().item(0);                            //Se obtiene el primer nodo del documento y a el se le añade como hijo el nodo videojuego que ya tiene colgando todos sus hijos y atributos creados antes
             raiz.appendChild(njuego);
             
             return 0;    
