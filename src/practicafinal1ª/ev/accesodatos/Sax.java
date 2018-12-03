@@ -68,6 +68,15 @@ class ManejadorSAX extends DefaultHandler{
             }else if (qName.equals("Consola")) {
                 ultimoelement = 5;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"La/s plataforma/s es/son: ";
+            }else if (qName.equals("Distribuidor")) {
+                ultimoelement = 6;
+                cadena_resultado = cadena_resultado.trim() + "\n"+"El distribuidor es: ";
+            }else if (qName.equals("ModoJuego")) {
+                ultimoelement = 7;
+                cadena_resultado = cadena_resultado.trim() + "\n"+"El/Los modo/s de juego es/son: ";
+            }else if (qName.equals("FechaLanzamiento")) {
+                ultimoelement = 8;
+                cadena_resultado = cadena_resultado.trim() + "\n"+"Su fecha de lanzamiento es: ";
             }
     }
      public void endElement(String uri, String localName, String qName)
