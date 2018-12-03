@@ -90,7 +90,7 @@ public class Dom {
     
     
     
-    public int añadirDOM(String nombreJuego, String genero, String consola){
+    public int añadirDOM(String nombreJuego, String genero, String consola, String distribuidor, String modojuego, String fechalanzamiento){
         try{
             Node njuego = doc.createElement("NombreJuego");                         //Se crea un nodo tipo element con nombre 'titulo'(<Titulo>)
             Node njuego_text=doc.createTextNode(nombreJuego);                       //Se crea un nodo tipo texto con el titulo del libro
@@ -107,6 +107,20 @@ public class Dom {
             
             nconsola.appendChild(nconsola_text);
             
+            Node ndistribuidor = doc.createElement("Distribuidor");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node ndistribuidor_text = doc.createTextNode(distribuidor);
+            
+            ndistribuidor.appendChild(ndistribuidor_text);
+            
+            Node nmodojuego = doc.createElement("ModoJuego");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node nmodojuego_text = doc.createTextNode(modojuego);
+            
+            nmodojuego.appendChild(nmodojuego_text);
+            
+            Node nfechalanzamiento = doc.createElement("FechaLanzamiento");                           //Se ace lo mismo que con titulo a autor(<Autor>)
+            Node nfechalanzamiento_text = doc.createTextNode(fechalanzamiento);
+            
+            nfechalanzamiento.appendChild(nfechalanzamiento_text);
             
             Node raiz = doc.getChildNodes().item(0);                            //Se obtiene el primer nodo del documento y a el se le añade como hijo el nodo libro que ya tiene colgando todos sus hijos y atributos creados antes
             raiz.appendChild(njuego);
