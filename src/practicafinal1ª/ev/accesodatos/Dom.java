@@ -25,13 +25,12 @@ import org.w3c.dom.NodeList;
  */
 public class Dom {
     Document doc;
-    int conteo;
-    String salida;
-    NodeList nodelist;
+    int conteo = 1;
+    
+    
    
     
     public int abrir_XML_DOM (File fichero){                                        //doc representa al arbol dom
-        doc = null;
         try{
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  //Se crea un objeto DocumentBuider Factory
             factory.setIgnoringElementContentWhitespace(true);                      //Ignora los espacios en blanco
@@ -56,6 +55,7 @@ public class Dom {
         NodeList nodelist=raiz.getChildNodes();                                 //obtiene una lista de nodos con todos los nodos hijo del raiz
         for(int i=0; i<nodelist.getLength(); i++){                              //Procesa los nodos hijo
             node = nodelist.item(i);
+            
             if (node.getNodeType()==Node.ELEMENT_NODE){
                 datos_nodo = procesarJuego(node);                               //Es un nodo juego
                     salida = salida + "\n" + "Publicado en:" + datos_nodo[0];
@@ -65,9 +65,8 @@ public class Dom {
                     salida = salida + "\n" + "Distribuidor: "+ datos_nodo[4];
                     salida = salida + "\n" + "Modo de Juego: "+ datos_nodo[5];
                     salida = salida + "\n" + "Fecha Lanzamiento: "+ datos_nodo[6];
-//                    salida = salida + "\n" + "Año: "+ datos_nodo[7];
-//                    salida = salida + "\n" + "Desarrollado por: "+ datos_nodo[8];
-//                    salida = salida + "\n" + "PEGI: "+ datos_nodo[9];
+                    salida = salida + "\n" + "Desarrollado por: "+ datos_nodo[7];
+                    salida = salida + "\n" + "PEGI: "+ datos_nodo[8];
                     salida = salida + "\n-----------"; 
             }
             
@@ -83,6 +82,8 @@ public class Dom {
         int contador = 1;
     
         datos[0]=n.getChildNodes().item(0).getNodeValue();                      //obtiene el valor del primer atributo del nodo(uno en este ejemplo)
+        datos[1]=n.getChildNodes().item(0).getNodeValue();
+        datos[2]=n.getChildNodes().item(0).getNodeValue();
         NodeList nodos = n.getChildNodes();                                     //obtiene los hijos del videojuego (nombrejuego, genero, consola, distribuidor, modojuego, fechalanzamiento) 
         
         for (int i=0; i < nodos.getLength(); i++){
@@ -100,10 +101,10 @@ public class Dom {
     
     
     
-    public int añadirDOM(String nombreJuego, String genero, String consola, String distribuidor, String modojuego, String fechalanzamiento, String año,
+    public int annadirDOM(String nombreJuego, String genero, String consola, String distribuidor, String modojuego, String fechalanzamiento, String anno,
             String desarrollo, String clasificacion
    ){
-        try{
+        try{ 
             Node njuego = doc.createElement("NombreJuego");                         //Se crea un nodo tipo element con nombre 'juego'(<NombreJuego>)
             Node njuego_text=doc.createTextNode(nombreJuego);                       //Se crea un nodo tipo texto con el nombre del juego
             
@@ -135,15 +136,16 @@ public class Dom {
             nfechalanzamiento.appendChild(nfechalanzamiento_text);
             
             Node nvideojuego=doc.createElement("Videojuego");                             //Se crea un nodo de tipo elemento(<videojuego>) 
-            ((Element)nvideojuego).setAttribute("publicado_en", año);
+            ((Element)nvideojuego).setAttribute("publicado_en", anno);
+            ((Element)nvideojuego).setAttribute("desarrollado_por", desarrollo);
+            ((Element)nvideojuego).setAttribute("Clasificacion", clasificacion);
             nvideojuego.appendChild(njuego);                                        //Se añade a videojuego el nodo juego, genero, consola, distribuidor, modojuego, fechalanzamiento  creados antes
             nvideojuego.appendChild(ngenero);
             nvideojuego.appendChild(nconsola);
             nvideojuego.appendChild(ndistribuidor);
             nvideojuego.appendChild(nmodojuego);
             nvideojuego.appendChild(nfechalanzamiento);
-            ((Element)nvideojuego).setAttribute("desarrollado_por", desarrollo);
-            ((Element)nvideojuego).setAttribute("Clasificacion", clasificacion);
+            
             
             //Al nuevo nodo videojuego se le añade los atributos
             

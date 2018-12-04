@@ -31,7 +31,7 @@ public class Sax {
         }
         catch(Exception e){
             e.printStackTrace();
-            return -1;
+            return 1;
         }
     }
 
@@ -45,39 +45,40 @@ class ManejadorSAX extends DefaultHandler{
     }
     
     public void startElement(String uri, String localName, String qName, Attributes atts)throws SAXException{
-    if (qName.equals("Videojuegos")){
-                cadena_resultado = cadena_resultado + "Videojuegos encontrados:" 
-                     + "\n" + "-------------------" + "\n" ;
-            }
-            
-            
-            else if (qName.equals("Videojuego")) {
+     if (qName.equals("Videojuego")) {
                 cadena_resultado = cadena_resultado + "\nPublicado en: "
-                        + atts.getValue(atts.getQName(0)) + "\n";
-                ultimoelement = 1;
-            } else if (qName.equals("Videojuego")) {
+                        + atts.getValue(atts.getQName(0));
+                ultimoelement =1;
+            }
+               if(qName.equals("Videojuego")){
                 cadena_resultado = cadena_resultado + "\ndesarrollado por: "
-                        + atts.getValue(atts.getQName(0)) + "\n";
-                ultimoelement = 2;
-            }else if (qName.equals("NombreJuego")) {
+                        + atts.getValue(atts.getQName(1));
+               ultimoelement = 2;
+            }
+                if(qName.equals("Videojuego")){
+                cadena_resultado = cadena_resultado + "\nClasificacion: "
+                        + atts.getValue(atts.getQName(2));
                 ultimoelement = 3;
+            } else if (qName.equals("NombreJuego")) {
+                ultimoelement = 4;
                 cadena_resultado = cadena_resultado.trim() + "\n"+ "El nombre del videojuego es: ";
             } else if (qName.equals("Genero")) {
-                ultimoelement = 4;
+                ultimoelement = 5;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"El genero es: ";
             }else if (qName.equals("Consola")) {
-                ultimoelement = 5;
+                ultimoelement = 6;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"La/s plataforma/s es/son: ";
             }else if (qName.equals("Distribuidor")) {
-                ultimoelement = 6;
+                ultimoelement = 7;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"El distribuidor es: ";
             }else if (qName.equals("ModoJuego")) {
-                ultimoelement = 7;
+                ultimoelement = 8;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"El/Los modo/s de juego es/son: ";
             }else if (qName.equals("FechaLanzamiento")) {
-                ultimoelement = 8;
+                ultimoelement = 9;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"Su fecha de lanzamiento es: ";
             }
+            
     }
      public void endElement(String uri, String localName, String qName)
                 throws SAXException {
@@ -89,16 +90,29 @@ class ManejadorSAX extends DefaultHandler{
      
     public void characters(char[] ch, int start, int length) throws
                 SAXException {
-            if (ultimoelement == 2) {
+            if (ultimoelement == 4) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
-            } else if (ultimoelement == 3) {
+            } else if (ultimoelement == 5) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 } 
                 
-            } else if (ultimoelement == 4) {
+            } else if (ultimoelement == 6) {
+                for (int i = start; i < length + start; i++) {
+                    cadena_resultado = cadena_resultado + ch[i];
+                }
+        }
+            else if (ultimoelement == 7) {
+                for (int i = start; i < length + start; i++) {
+                    cadena_resultado = cadena_resultado + ch[i];
+                }
+        }else if (ultimoelement == 8) {
+                for (int i = start; i < length + start; i++) {
+                    cadena_resultado = cadena_resultado + ch[i];
+                }
+        }else if (ultimoelement == 9) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
