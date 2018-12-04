@@ -67,6 +67,7 @@ public class Dom {
                     salida = salida + "\n" + "Fecha Lanzamiento: "+ datos_nodo[6];
                     salida = salida + "\n" + "Desarrollado por: "+ datos_nodo[7];
                     salida = salida + "\n" + "PEGI: "+ datos_nodo[8];
+                    salida = salida + "\n" + "Valoracion: "+ datos_nodo[9];
                     salida = salida + "\n-----------"; 
             }
             
@@ -77,7 +78,7 @@ public class Dom {
     
     
     protected String[] procesarJuego(Node n){
-        String datos[]= new String[9];
+        String datos[]= new String[10];
         Node ntemp = null;
         int contador = 1;
     
@@ -102,7 +103,7 @@ public class Dom {
     
     
     public int annadirDOM(String nombreJuego, String genero, String consola, String distribuidor, String modojuego, String fechalanzamiento, String anno,
-            String desarrollo, String clasificacion
+            String desarrollo, String clasificacion, String valoracion
    ){
         try{ 
             Node njuego = doc.createElement("NombreJuego");                         //Se crea un nodo tipo element con nombre 'juego'(<NombreJuego>)
@@ -135,6 +136,11 @@ public class Dom {
             
             nfechalanzamiento.appendChild(nfechalanzamiento_text);
             
+            Node nvaloracion = doc.createElement("Valoracion");                           //Se hace lo mismo que con la fecha de lanzamiento
+            Node nvaloracion_text = doc.createTextNode(valoracion);
+            
+            nvaloracion.appendChild(nvaloracion_text);
+            
             Node nvideojuego=doc.createElement("Videojuego");                             //Se crea un nodo de tipo elemento(<videojuego>) 
             ((Element)nvideojuego).setAttribute("publicado_en", anno);
             ((Element)nvideojuego).setAttribute("desarrollado_por", desarrollo);
@@ -145,6 +151,7 @@ public class Dom {
             nvideojuego.appendChild(ndistribuidor);
             nvideojuego.appendChild(nmodojuego);
             nvideojuego.appendChild(nfechalanzamiento);
+            nvideojuego.appendChild(nvaloracion);
             
             
             //Al nuevo nodo videojuego se le añade los atributos

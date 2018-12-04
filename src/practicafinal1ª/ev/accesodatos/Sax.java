@@ -77,7 +77,11 @@ class ManejadorSAX extends DefaultHandler{
             }else if (qName.equals("FechaLanzamiento")) {
                 ultimoelement = 9;
                 cadena_resultado = cadena_resultado.trim() + "\n"+"Su fecha de lanzamiento es: ";
+            }else if (qName.equals("Valoracion")) {
+                ultimoelement = 10;
+                cadena_resultado = cadena_resultado.trim() + "\n"+"Valoracion: ";
             }
+                
             
     }
      public void endElement(String uri, String localName, String qName)
@@ -113,6 +117,10 @@ class ManejadorSAX extends DefaultHandler{
                     cadena_resultado = cadena_resultado + ch[i];
                 }
         }else if (ultimoelement == 9) {
+                for (int i = start; i < length + start; i++) {
+                    cadena_resultado = cadena_resultado + ch[i];
+                }
+        }else if (ultimoelement == 10) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
