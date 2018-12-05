@@ -107,20 +107,19 @@ class ManejadorSAX extends DefaultHandler{
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
-        }
-            else if (ultimoelement == 7) {
+            } else if (ultimoelement == 7) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
-        }else if (ultimoelement == 8) {
+            }else if (ultimoelement == 8) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
-        }else if (ultimoelement == 9) {
+            }else if (ultimoelement == 9) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }
-        }else if (ultimoelement == 10) {
+            }else if (ultimoelement == 10) {
                 for (int i = start; i < length + start; i++) {
                     cadena_resultado = cadena_resultado + ch[i];
                 }

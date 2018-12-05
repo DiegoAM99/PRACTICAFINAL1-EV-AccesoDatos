@@ -52,19 +52,19 @@ public class Formulario extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jFileChooser1 = new javax.swing.JFileChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaResultados = new javax.swing.JTextArea();
         jButtonMostrar = new javax.swing.JButton();
         jTextFieldNombreJuego = new javax.swing.JTextField();
         jTextFieldGenero = new javax.swing.JTextField();
         jTextFieldConsola = new javax.swing.JTextField();
         jButtonAnadir = new javax.swing.JButton();
         jButtonEjecutarConsulta = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelSeleccionarArchivo = new javax.swing.JLabel();
         jTextFieldAntiguoNombreJuego = new javax.swing.JTextField();
         jTextFieldNuevoNombreJuego = new javax.swing.JTextField();
         jButtonModificar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelAntiguoNombre = new javax.swing.JLabel();
+        jLabelNuevoNombre = new javax.swing.JLabel();
         jTextFieldDistribuidor = new javax.swing.JTextField();
         jTextFieldModoJuego = new javax.swing.JTextField();
         jTextFieldFecha = new javax.swing.JTextField();
@@ -75,7 +75,7 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldValoracion = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemAbrir = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -96,9 +96,9 @@ public class Formulario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jTextAreaResultados.setColumns(20);
+        jTextAreaResultados.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaResultados);
 
         jButtonMostrar.setText("Mostrar");
         jButtonMostrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,7 +122,7 @@ public class Formulario extends javax.swing.JFrame {
 
         jButtonEjecutarConsulta.setText("Ejecutar Consulta");
 
-        jLabel1.setText("Seleccione un archivo");
+        jLabelSeleccionarArchivo.setText("Seleccione un archivo");
 
         jButtonModificar.setText("Modificar");
         jButtonModificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,9 +136,9 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Antiguo NombreJuego");
+        jLabelAntiguoNombre.setText("Antiguo NombreJuego");
 
-        jLabel3.setText("Nuevo NombreJuego");
+        jLabelNuevoNombre.setText("Nuevo NombreJuego");
 
         jTextFieldDistribuidor.setText("Distribuidor");
 
@@ -168,13 +168,13 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Abrir Xml");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuItemAbrir.setText("Abrir Xml");
+        jMenuItemAbrir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem1MousePressed(evt);
+                jMenuItemAbrirMousePressed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jMenuItemAbrir);
 
         jMenuBar1.add(jMenu1);
 
@@ -195,7 +195,7 @@ public class Formulario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSeleccionarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonEjecutarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -218,8 +218,8 @@ public class Formulario extends javax.swing.JFrame {
                         .addContainerGap(54, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                            .addComponent(jLabelNuevoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelAntiguoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 19, Short.MAX_VALUE)
@@ -279,14 +279,14 @@ public class Formulario extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextFieldNuevoNombreJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                    .addComponent(jLabelNuevoNombre))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonModificar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1))
+                                .addComponent(jLabelSeleccionarArchivo))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextFieldAntiguoNombreJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)))))
+                                .addComponent(jLabelAntiguoNombre)))))
                 .addContainerGap())
         );
 
@@ -297,29 +297,29 @@ public class Formulario extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jMenu1MousePressed
 
-    private void jMenuItem1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MousePressed
+    private void jMenuItemAbrirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemAbrirMousePressed
         
         selectedFile = dialogoSeleccionTipoRecurso();
         if(getSax.abrir_XML_SAX(selectedFile) == 0){
-                jLabel1.setText("Carga del documento completada.");
+                jLabelSeleccionarArchivo.setText("Carga del documento completada.");
         }
         if(getDom.abrir_XML_DOM(selectedFile) == 0){
-                jLabel1.setText("Carga del documento completada.");
+                jLabelSeleccionarArchivo.setText("Carga del documento completada.");
         }
         if(getJaxB.abrir_XML_JAXB(selectedFile) == 0){
-                jLabel1.setText("Carga del documento completada.");
+                jLabelSeleccionarArchivo.setText("Carga del documento completada.");
         }
-    }//GEN-LAST:event_jMenuItem1MousePressed
+    }//GEN-LAST:event_jMenuItemAbrirMousePressed
 
     private void jButtonModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarMousePressed
         if (jTextFieldAntiguoNombreJuego.getText().equals("") || jTextFieldNuevoNombreJuego.getText().equals("")){
-            jLabel1.setText("Campos incompletos.");
+            jLabelSeleccionarArchivo.setText("Campos incompletos.");
          } 
          else{
             //Paso como parametro lo que escriba en los respectivos jTextField respecto al titulo viejo y al nuevo
             getDom.modificarDOM(jTextFieldAntiguoNombreJuego.getText(), jTextFieldNuevoNombreJuego.getText());
             //Le paso al jTextArea la modificacion
-            jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
+            jTextAreaResultados.setText(getDom.recorrerDOMyMostrar(getDom.doc));
             //Utilizo el contador para identificar los cambios, y en el caso de que existan 
             //cambios los guardo.
           if (getDom.conteo == 1){
@@ -334,24 +334,23 @@ public class Formulario extends javax.swing.JFrame {
     private void jButtonAnadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnadirMousePressed
       //No dejara realizar la accion si algun campo esta vacio.
         if (jTextFieldNombreJuego.getText().equals("") || jTextFieldGenero.getText().equals("") || jTextFieldConsola.getText().equals("") || jTextFieldDistribuidor.getText().equals("") || jTextFieldModoJuego.getText().equals("") || jTextFieldFecha.getText().equals("") || jTextFieldAnno.getText().equals("") || 
-        jTextFieldDesarrollo.getText().equals("") || jTextFieldClasificacion.getText().equals("")){
-            jLabel1.setText("Campos incompletos.");
+        jTextFieldDesarrollo.getText().equals("") || jTextFieldClasificacion.getText().equals("") || jTextFieldValoracion.getText().equals("")){
+            jLabelSeleccionarArchivo.setText("Campos incompletos.");
         }
         //Con todos los campos rellenos, accedera a añadir un nuevo videojuego.
         else{
             getDom.annadirDOM(jTextFieldNombreJuego.getText(), jTextFieldGenero.getText(), jTextFieldConsola.getText(), jTextFieldDistribuidor.getText(), jTextFieldModoJuego.getText(), jTextFieldFecha.getText(),
                     jTextFieldAnno.getText(), jTextFieldDesarrollo.getText(), jTextFieldClasificacion.getText(), jTextFieldValoracion.getText());
-           
-            jLabel1.setText("Nuevo videojuego añadido correctamente.");
+            jLabelSeleccionarArchivo.setText("Nuevo videojuego añadido correctamente.");
             
             getDom.guardarDOMcomoFILE(selectedFile.getAbsolutePath());
             getSax.abrir_XML_SAX(selectedFile);
-            jTextArea2.setText(getSax.recorrerSAX());
+            jTextAreaResultados.setText(getSax.recorrerSAX());
         }
     }//GEN-LAST:event_jButtonAnadirMousePressed
 
     private void jButtonMostrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMostrarMousePressed
-        jTextArea2.setText(getSax.recorrerSAX());
+        jTextAreaResultados.setText(getSax.recorrerSAX());
     }//GEN-LAST:event_jButtonMostrarMousePressed
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
@@ -366,7 +365,7 @@ public class Formulario extends javax.swing.JFrame {
         if (resultado == JFileChooser.APPROVE_OPTION){
             selectedFile = filechooser.getSelectedFile();
 //            getDom.guardarDOMcomoFILE();
-            jLabel1.setText("archivo guardado");
+            jLabelSeleccionarArchivo.setText("archivo guardado");
         }
     }//GEN-LAST:event_jButtonGuardarMousePressed
 
@@ -413,14 +412,14 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMostrar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelAntiguoNombre;
+    private javax.swing.JLabel jLabelNuevoNombre;
+    private javax.swing.JLabel jLabelSeleccionarArchivo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemAbrir;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextAreaResultados;
     private javax.swing.JTextField jTextFieldAnno;
     private javax.swing.JTextField jTextFieldAntiguoNombreJuego;
     private javax.swing.JTextField jTextFieldClasificacion;
