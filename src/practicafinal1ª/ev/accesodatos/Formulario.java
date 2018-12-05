@@ -57,7 +57,7 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldNombreJuego = new javax.swing.JTextField();
         jTextFieldGenero = new javax.swing.JTextField();
         jTextFieldConsola = new javax.swing.JTextField();
-        jButtonAñadir = new javax.swing.JButton();
+        jButtonAnadir = new javax.swing.JButton();
         jButtonEjecutarConsulta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldAntiguoNombreJuego = new javax.swing.JTextField();
@@ -113,10 +113,10 @@ public class Formulario extends javax.swing.JFrame {
 
         jTextFieldConsola.setText("Consola");
 
-        jButtonAñadir.setText("Añadir");
-        jButtonAñadir.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAnadir.setText("Añadir");
+        jButtonAnadir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonAñadirMousePressed(evt);
+                jButtonAnadirMousePressed(evt);
             }
         });
 
@@ -232,7 +232,7 @@ public class Formulario extends javax.swing.JFrame {
                                 .addComponent(jTextFieldAntiguoNombreJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -273,8 +273,7 @@ public class Formulario extends javax.swing.JFrame {
                             .addComponent(jButtonGuardar)
                             .addComponent(jTextFieldValoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
-                        .addComponent(jButtonAñadir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAnadir)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
@@ -299,15 +298,15 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1MousePressed
 
     private void jMenuItem1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MousePressed
-        File ficheroXML;
-        ficheroXML = dialogoSeleccionTipoRecurso();
-        if(getSax.abrir_XML_SAX(ficheroXML) == 0){
+        
+        selectedFile = dialogoSeleccionTipoRecurso();
+        if(getSax.abrir_XML_SAX(selectedFile) == 0){
                 jLabel1.setText("Carga del documento completada.");
         }
-        if(getDom.abrir_XML_DOM(ficheroXML) == 0){
+        if(getDom.abrir_XML_DOM(selectedFile) == 0){
                 jLabel1.setText("Carga del documento completada.");
         }
-        if(getJaxB.abrir_XML_JAXB(ficheroXML) == 0){
+        if(getJaxB.abrir_XML_JAXB(selectedFile) == 0){
                 jLabel1.setText("Carga del documento completada.");
         }
     }//GEN-LAST:event_jMenuItem1MousePressed
@@ -332,7 +331,7 @@ public class Formulario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonModificarMousePressed
 
-    private void jButtonAñadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAñadirMousePressed
+    private void jButtonAnadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnadirMousePressed
       //No dejara realizar la accion si algun campo esta vacio.
         if (jTextFieldNombreJuego.getText().equals("") || jTextFieldGenero.getText().equals("") || jTextFieldConsola.getText().equals("") || jTextFieldDistribuidor.getText().equals("") || jTextFieldModoJuego.getText().equals("") || jTextFieldFecha.getText().equals("") || jTextFieldAnno.getText().equals("") || 
         jTextFieldDesarrollo.getText().equals("") || jTextFieldClasificacion.getText().equals("")){
@@ -342,14 +341,14 @@ public class Formulario extends javax.swing.JFrame {
         else{
             getDom.annadirDOM(jTextFieldNombreJuego.getText(), jTextFieldGenero.getText(), jTextFieldConsola.getText(), jTextFieldDistribuidor.getText(), jTextFieldModoJuego.getText(), jTextFieldFecha.getText(),
                     jTextFieldAnno.getText(), jTextFieldDesarrollo.getText(), jTextFieldClasificacion.getText(), jTextFieldValoracion.getText());
-            jTextArea2.setText(getDom.recorrerDOMyMostrar(getDom.doc));
+           
             jLabel1.setText("Nuevo videojuego añadido correctamente.");
             
             getDom.guardarDOMcomoFILE(selectedFile.getAbsolutePath());
             getSax.abrir_XML_SAX(selectedFile);
             jTextArea2.setText(getSax.recorrerSAX());
         }
-    }//GEN-LAST:event_jButtonAñadirMousePressed
+    }//GEN-LAST:event_jButtonAnadirMousePressed
 
     private void jButtonMostrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMostrarMousePressed
         jTextArea2.setText(getSax.recorrerSAX());
@@ -407,7 +406,7 @@ public class Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAñadir;
+    private javax.swing.JButton jButtonAnadir;
     private javax.swing.JButton jButtonEjecutarConsulta;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonModificar;
