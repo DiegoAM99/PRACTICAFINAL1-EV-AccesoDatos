@@ -86,35 +86,36 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jTextFieldFecha" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldConsola" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldGenero" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldNombreJuego" alignment="0" pref="226" max="32767" attributes="0"/>
+                              <Component id="jTextFieldDistribuidor" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldModoJuego" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAnno" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldDesarrollo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldClasificacion" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" pref="245" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jTextFieldValoracion" max="32767" attributes="0"/>
+                          <EmptySpace pref="410" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelSeleccionarArchivo" alignment="0" min="-2" pref="221" max="-2" attributes="0"/>
-                          <Component id="jButtonEjecutarConsulta" min="-2" pref="241" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jTextFieldFecha" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldConsola" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldGenero" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldNombreJuego" alignment="0" pref="226" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldDistribuidor" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldModoJuego" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldAnno" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldDesarrollo" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldClasificacion" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jTextFieldValoracion" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jButtonGuardar" min="-2" pref="181" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonEjecutarConsulta" min="-2" pref="241" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldConsulta" pref="214" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -157,6 +158,10 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jButtonEjecutarConsulta" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsulta" min="-2" pref="31" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -183,10 +188,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldClasificacion" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace pref="15" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldValoracion" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jTextFieldValoracion" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="jButtonAnadir" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -264,6 +266,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ejecutar Consulta"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonEjecutarConsultaMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelSeleccionarArchivo">
       <Properties>
@@ -323,18 +328,12 @@
         <Property name="text" type="java.lang.String" value="Clasificacion"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonGuardar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonGuardarMousePressed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldValoracion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Valoracion"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldConsulta">
     </Component>
   </SubComponents>
 </Form>

@@ -71,8 +71,8 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldAnno = new javax.swing.JTextField();
         jTextFieldDesarrollo = new javax.swing.JTextField();
         jTextFieldClasificacion = new javax.swing.JTextField();
-        jButtonGuardar = new javax.swing.JButton();
         jTextFieldValoracion = new javax.swing.JTextField();
+        jTextFieldConsulta = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemAbrir = new javax.swing.JMenuItem();
@@ -121,6 +121,11 @@ public class Formulario extends javax.swing.JFrame {
         });
 
         jButtonEjecutarConsulta.setText("Ejecutar Consulta");
+        jButtonEjecutarConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonEjecutarConsultaMousePressed(evt);
+            }
+        });
 
         jLabelSeleccionarArchivo.setText("Seleccione un archivo");
 
@@ -151,13 +156,6 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldDesarrollo.setText("Desarrollado Por");
 
         jTextFieldClasificacion.setText("Clasificacion");
-
-        jButtonGuardar.setText("Guardar");
-        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonGuardarMousePressed(evt);
-            }
-        });
 
         jTextFieldValoracion.setText("Valoracion");
 
@@ -193,29 +191,30 @@ public class Formulario extends javax.swing.JFrame {
                         .addComponent(jButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextFieldFecha, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldConsola, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldGenero, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldNombreJuego, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                .addComponent(jTextFieldDistribuidor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldModoJuego, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldAnno, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldDesarrollo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldClasificacion, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addContainerGap(245, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextFieldValoracion)
+                            .addContainerGap(410, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelSeleccionarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEjecutarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextFieldFecha, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldConsola, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldGenero, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldNombreJuego, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldDistribuidor, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldModoJuego, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldAnno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldDesarrollo, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldClasificacion, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextFieldValoracion)
-                                        .addGap(10, 10, 10)))
-                                .addComponent(jButtonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(54, Short.MAX_VALUE))
+                                .addComponent(jButtonEjecutarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelNuevoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -244,7 +243,10 @@ public class Formulario extends javax.swing.JFrame {
                         .addComponent(jButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jButtonEjecutarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEjecutarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextFieldConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -269,9 +271,7 @@ public class Formulario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonGuardar)
-                            .addComponent(jTextFieldValoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldValoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jButtonAnadir)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,17 +357,11 @@ public class Formulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
-    private void jButtonGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMousePressed
-        File  selectedFile;
-        JFileChooser filechooser = new JFileChooser();
-        filechooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int resultado =filechooser.showSaveDialog(this);
-        if (resultado == JFileChooser.APPROVE_OPTION){
-            selectedFile = filechooser.getSelectedFile();
-//            getDom.guardarDOMcomoFILE();
-            jLabelSeleccionarArchivo.setText("archivo guardado");
-        }
-    }//GEN-LAST:event_jButtonGuardarMousePressed
+    private void jButtonEjecutarConsultaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEjecutarConsultaMousePressed
+        jTextFieldConsulta.setText("/Videojuegos/Videojuego");
+        getDom.EjecutaXPath(selectedFile, jTextFieldConsulta.getText());
+        jTextAreaResultados.setText(getDom.salida);
+    }//GEN-LAST:event_jButtonEjecutarConsultaMousePressed
 
     /**
      * @param args the command line arguments
@@ -407,7 +401,6 @@ public class Formulario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnadir;
     private javax.swing.JButton jButtonEjecutarConsulta;
-    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonModificar;
     private javax.swing.JButton jButtonMostrar;
     private javax.swing.JDialog jDialog1;
@@ -424,6 +417,7 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAntiguoNombreJuego;
     private javax.swing.JTextField jTextFieldClasificacion;
     private javax.swing.JTextField jTextFieldConsola;
+    private javax.swing.JTextField jTextFieldConsulta;
     private javax.swing.JTextField jTextFieldDesarrollo;
     private javax.swing.JTextField jTextFieldDistribuidor;
     private javax.swing.JTextField jTextFieldFecha;

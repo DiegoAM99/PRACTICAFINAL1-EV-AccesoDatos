@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
@@ -26,7 +27,7 @@ import org.w3c.dom.NodeList;
 public class Dom {
     Document doc;
     int conteo = 1;
-    
+    String salida = "";
     
    
     
@@ -211,57 +212,39 @@ public class Dom {
         }
     }
     
-    public String EjecutaXPath(String consulta) {
-//        String countBooks = "count(//descendant::book)";
-//        String getBooks = "/library/descendant::book";
-//        String getAuthorWithId = "/library/descendant::author[@id = ";
-//        
-//        try {
-//         XPathExpression exp = xpath.compile(consulta);
-//        Number countNodes = (Number) expression.evaluate(xml, XPathConstants.NUMBER);
-//        System.out.println("Number of books: " + countNodes.intValue());
-//
-//        expression = xPath.compile(getBooks);
-//        NodeList books = (NodeList) expression.evaluate(xml, XPathConstants.NODESET);
-//        for(int i = 0; i < books.getLength(); i++){
-//
-//            System.out.println( "Book #" + (i+1) );
-//
-//            NodeList bookAttributs = books.item(i).getChildNodes();
-//            System.out.println( "Title: " + bookAttributs.item(0).getTextContent() );
-//
-//            expression = xPath.compile(getAuthorWithId + bookAttributs.item(1).getTextContent() + "]" );
-//            Node author = (Node) expression.evaluate(xml, XPathConstants.NODE);
-//
-//            System.out.println( "Author: " + author.getTextContent() );
-//}
-//} catch (Exception e) {
-//System.out.println(e.getMessage());
-//e.printStackTrace(System.out);
-//}
+    public int EjecutaXPath(File fichero, String consulta) {
 
         try {
+            //Crea un objeto DocumentBuilderFactory para el DOM (JAXP)
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            //Crear un árbol DOM (parsear) con el archivo futbol.xml
+            Document XMLDoc = factory.newDocumentBuilder().parse(fichero);
             //Crea el objeto XPath
-            javax.xml.xpath.XPath xpath = XPathFactory.newInstance().newXPath();
-
+            XPath xpath = XPathFactory.newInstance().newXPath();
             //Crea un XPathExpression con la consulta deseada
             XPathExpression exp = xpath.compile(consulta);
-            
             //Ejecuta la consulta indicando que se ejecute sobre el DOM y que devolverá
             //el resultado como una lista de nodos.
-            Object result = exp.evaluate(doc, XPathConstants.NODESET);
+            Object result = exp.evaluate(XMLDoc, XPathConstants.NODESET);
             NodeList nodeList = (NodeList) result;
             //Ahora recorre la lista para sacar los resultados
-            String salida = "";
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                salida = salida + "\n"
-                        + nodeList.item(i).getChildNodes().item(0).getNodeValue();
+            if (consulta.equals("/Videojuegos/Videojuego")) {
+                for (int i = 0; i < nodeList.getLength(); i++) {
+                    salida = salida + "\n Publicado en: " + nodeList.item(i).getAttributes().getNamedItem("publicado_en").getNodeValue();
+                    salida = salida + "\n Desarrollado por: " + nodeList.item(i).getAttributes().getNamedItem("desarrollado_por").getNodeValue();
+                    salida = salida + "\n Clasificacion: " + nodeList.item(i).getAttributes().getNamedItem("Clasificacion").getNodeValue();
+                    salida = salida + "\n" + nodeList.item(i).getTextContent();
+
+                }
+            } else {
+                for (int i = 0; i < nodeList.getLength(); i++) {
+                    salida = salida + "\n" + nodeList.item(i).getTextContent(); // para cuando quiere algo en concreto
+
+                }
             }
-            System.out.println(salida);
-            return salida;
-        } catch (Exception ex) {
-            System.out.println("Error: " + ex.toString());
-            return null;
+            return 0;
+        } catch (Exception e) {
+            return -1;
         }
     }
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Videojuegos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="VideojuegosEsquema.xsd">
+    <Videojuego  publicado_en="2018" desarrollado_por="Insomniac Games" Clasificacion="16">
+        <NombreJuego>Marvel Spider-Man</NombreJuego>
+        <Genero>Acción</Genero>
+        <Consola>PS4</Consola>
+        <Distribuidor>Sony</Distribuidor>
+        <ModoJuego>Un jugador</ModoJuego>
+        <FechaLanzamiento>7 de septiembre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego publicado_en="2018" desarrollado_por="Dontnod Entertainment" Clasificacion="16">
+        <NombreJuego>Life is Strange 2</NombreJuego>
+        <Genero>Aventura</Genero>
+        <Consola>PlayStation 4, Xbox One, Microsoft Windows...</Consola>
+        <Distribuidor>Square Enix</Distribuidor>
+        <ModoJuego>Un jugador</ModoJuego>
+        <FechaLanzamiento>27 de septiembre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego  publicado_en="2017" desarrollado_por="Epic Games" Clasificacion="3">
+        <NombreJuego>Fortnite</NombreJuego>
+        <Genero>Supervivencia, Battle Royale</Genero>
+        <Consola>PlayStation 4, Android, Nintendo Switch, Xbox One...</Consola>
+        <Distribuidor>Epic Games</Distribuidor>
+        <ModoJuego>Un jugador, multijugador cooperativo</ModoJuego>
+        <FechaLanzamiento>25 de julio de 2017</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego  publicado_en="2018" desarrollado_por="Rockstar Games" Clasificacion="18">
+        <NombreJuego>Red Dead Redemption 2</NombreJuego>
+        <Genero>Accion-Aventura</Genero>
+        <Consola>PlayStation 4, Xbox One</Consola>
+        <Distribuidor>Take-Two Interactive</Distribuidor>
+        <ModoJuego>Un jugador, Multijugador</ModoJuego>
+        <FechaLanzamiento>26 de octubre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego  publicado_en="2018" desarrollado_por="Ubisoft" Clasificacion="18">
+        <NombreJuego>Far Cry 5</NombreJuego>
+        <Genero>Accion-Aventura</Genero>
+        <Consola>PlayStation 4, Xbox One, Microsoft Windows</Consola>
+        <Distribuidor>Ubisoft</Distribuidor>
+        <ModoJuego>Un jugador, Multijugador</ModoJuego>
+        <FechaLanzamiento>27 de marzo de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego  publicado_en="2018" desarrollado_por="EA" Clasificacion="3">
+        <NombreJuego>Fifa 19</NombreJuego>
+        <Genero>Deportes</Genero>
+        <Consola>PlayStation 4, Xbox One, Nintendo Switch, PlayStation 3, Xbox 360, Microsoft Windows</Consola>
+        <Distribuidor>EA Sports</Distribuidor>
+        <ModoJuego>Un jugador, Multijugador</ModoJuego>
+        <FechaLanzamiento>28 de septiembre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego publicado_en="2018" desarrollado_por="Crystal Dynamics, Eidos Montréal" Clasificacion="18">
+        <NombreJuego>Shadow of the Tomb Raider</NombreJuego>
+        <Genero>Accion-Aventura</Genero>
+        <Consola>PlayStation 4, Xbox One, Microsoft Windows ...</Consola>
+        <Distribuidor>EA Sports</Distribuidor>
+        <ModoJuego>Un jugador</ModoJuego>
+        <FechaLanzamiento>14 de septiembre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego  publicado_en="2018" desarrollado_por="Ubisoft" Clasificacion="18">
+        <NombreJuego>Assassin's Creed: Odyssey</NombreJuego>
+        <Genero>Acción</Genero>
+        <Consola>PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows</Consola>
+        <Distribuidor>Ubisoft</Distribuidor>
+        <ModoJuego>Un jugador</ModoJuego>
+        <FechaLanzamiento>5 de octubre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego publicado_en="2018" desarrollado_por="Turn 10 Studios, Playground Games"  Clasificacion="3">
+        <NombreJuego>Forza Horizon 4</NombreJuego>
+        <Genero>Carreras</Genero>
+        <Consola>Xbox One, Microsoft Windows</Consola>
+        <Distribuidor>Microsoft Studios</Distribuidor>
+        <ModoJuego>Un jugador, Multijugador</ModoJuego>
+        <FechaLanzamiento>2 de octubre de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+    <Videojuego  publicado_en="2018" desarrollado_por="Quantic Dream" Clasificacion="18">
+        <NombreJuego>Detroit: Become Human</NombreJuego>
+        <Genero>Aventura</Genero>
+        <Consola>PlayStation 4</Consola>
+        <Distribuidor>Sony</Distribuidor>
+        <ModoJuego>Un jugador</ModoJuego>
+        <FechaLanzamiento>25 de mayo de 2018</FechaLanzamiento>
+        <Valoracion>Buena</Valoracion>
+    </Videojuego>
+</Videojuegos>
