@@ -51,8 +51,5 @@ public class JaxB {
     }
         return cadena_resultado;
     }
-    
-    public void modificarJaxB (){
-        
-    }
+      
 }
